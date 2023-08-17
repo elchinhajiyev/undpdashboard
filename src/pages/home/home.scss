@@ -1,0 +1,98 @@
+.home{
+display: flex;
+flex-direction: column;
+align-items: center;
+    .logo{
+        justify-content: center;
+        margin-top: 70px;
+        width: 423px;
+        height: 87px;
+        display: flex;
+        gap: 25px;
+        margin-bottom: 52px;
+        img{
+            height: 91px;
+            &:nth-child(1){
+                width: 182px;
+                object-fit: contain;
+            }
+            &:nth-child(2){
+                width: 132px;
+                object-fit: contain;
+            }
+            &:nth-child(3){
+                width: 44px;
+                object-fit: contain;
+            }
+            
+        }
+    }
+    .main-box{
+        width: 895px;
+        height: 265px;
+        background-color: #1468B2;
+        border-radius: 25px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 72px;
+        p{
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+           
+        }
+    }
+    .navigation{
+        display: flex;
+        gap: 20px;
+       
+        .bysdg{
+            height: 60px;
+            width: 175px;
+            background-color: #1782df;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+
+        }
+        .bysector{
+            height: 60px;
+            width: 175px;
+            background-color: #76c47c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+
+        }
+        .gender{
+            height: 60px;
+            width: 175px;
+            background-color: #ce4730;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .sdg16{
+            height: 60px;
+            width: 175px;
+            background-color: #e5a244;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}

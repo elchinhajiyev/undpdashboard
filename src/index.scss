@@ -1,0 +1,33 @@
+:root, html {
+  --leftbar: white;
+  --main: #efefef;
+  --border: #b1b3b4;
+  --gray: #1e2631;
+  --gray-hover: #353b43;
+  --dark-blue: #224f87;
+  --gray-opaque: #7c859e20;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+
+  /* color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%; */
+}
+
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+} */
+
+
+html, body, div, span, applet, object, iframe{
+  margin: 0;
+  padding: 0;
+}
