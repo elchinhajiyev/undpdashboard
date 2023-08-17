@@ -1,4 +1,4 @@
-import React from 'react'
+import {Link} from 'react-router-dom'
 import "./leftbar.scss"
 import {BsGlobeAsiaAustralia} from "react-icons/bs"
 import {BiMaleFemale} from 'react-icons/bi'
@@ -9,9 +9,11 @@ const Leftbar = () => {
   return (
   <div className="main-left">
       <div className='leftbar'>
-      <div className='logo'>
-      Dashboad by SDG
-      </div>
+     
+      <Link to="/" className='logo'>
+     Dashboad by SDG
+      </Link>
+      
       <button className='navigation'>
         <div className="navigation-item">
         <BsGlobeAsiaAustralia className='nav-icon'/>General

@@ -22,6 +22,7 @@
             background-color: var(--dark-blue);
             color: var(--leftbar);
             width: 100%;
+            text-decoration: none;
         }
         
         .navigation{
@@ -64,6 +65,7 @@
             border-radius: 5px;
             padding: 5px 10px;
             border: none;
+            cursor: pointer;
         }
     }
 }
