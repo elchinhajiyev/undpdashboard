@@ -5,13 +5,15 @@ import {BiMaleFemale} from 'react-icons/bi'
 import {FaChild} from 'react-icons/fa'
 import {GiPeaceDove} from 'react-icons/gi'
 import {BiPlanet} from 'react-icons/bi'
+import {IoArrowBackOutline} from 'react-icons/io5'
 const Leftbar = () => {
   return (
   <div className="main-left">
       <div className='leftbar'>
      
       <Link to="/" className='logo'>
-     Dashboad by SDG
+      <div className="back-icon"><IoArrowBackOutline/> </div>
+      <p>Dashboad by SDG</p>
       </Link>
       
       <button className='navigation'>

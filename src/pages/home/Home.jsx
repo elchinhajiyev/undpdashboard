@@ -19,8 +19,8 @@ const Home = () => {
         
         <Link to='/sdg' className='bysdg'> Dashboard by SDG</Link>
         <Link to='/sector' className='bysector'>Dashboard by Sector</Link>
-        <Link to='/gender' className='gender'>SDG 5-Gender</Link>
-        <div className='sdg16'>SDG 16 - Peace, Justice and Strong Institutions</div>
+        <Link to='/gender' className='gender'>Network Chart</Link>
+        <div className='sdg16'>PPI Results</div>
       </div>
     </div>
   )

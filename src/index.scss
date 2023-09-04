@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 :root, html {
   --leftbar: white;
   --main: #efefef;
@@ -7,7 +8,7 @@
   --dark-blue: #224f87;
   --gray-opaque: #7c859e20;
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, sans-serif;
 
 
   /* color-scheme: light dark;
@@ -30,4 +31,5 @@
 html, body, div, span, applet, object, iframe{
   margin: 0;
   padding: 0;
+  font-family: Roboto, sans-serif;
 }
