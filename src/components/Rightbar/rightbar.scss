@@ -2,4 +2,76 @@
     background-color: var(--leftbar);
     width: 560px;
     padding: 5px;
+
+    .logo-area{
+        width: 100%;
+        height: 80px;
+        background-color: #1466ae;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    .targetlist{
+        
+        margin-top: 5px;
+        max-height: 260px;
+        overflow: auto;
+        font-size: small;
+        margin-bottom: 20px;
+        // border-bottom: 1px solid rgb(183, 183, 183);
+
+        .target-table{
+            width: 100%;
+
+           .table{
+
+             tr:nth-child(even) {
+                background-color: rgb(239, 239, 239); 
+                padding: 0 20px;
+                }
+
+            width: 100%;
+            text-align: left;
+
+             .target-header{
+                width: 100%;
+
+             
+            }
+           }
+        }
+    }
+    .expenselist{
+        
+        margin-top: 5px;
+        height: 330px;
+        overflow: auto;
+        font-size: x-small;
+        margin-bottom: 20px;
+        // border-bottom: 1px solid rgb(183, 183, 183);
+
+        .expense-table{
+            width: 100%;
+
+           .table{
+
+             tr:nth-child(even) {
+                background-color: rgb(239, 239, 239); 
+                padding: 0 20px;
+                
+                }
+
+            width: 100%;
+            text-align: left;
+
+             .expense-header{
+                width: 100%;
+
+             
+            }
+           }
+        }
+    }
 }
