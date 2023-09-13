@@ -7,8 +7,8 @@ const Rightbar = () => {
         <div className="target-table">
           <table className="table">
             <tr className="target-header">
-              <th>SDG BY TARGET</th>
-              <th style={{ textAlign: "right" }}>Amount</th>
+              <th>DİM üzrə hədəf</th>
+              <th style={{ textAlign: "right" }}>Məbləğ</th>
             </tr>
             {Array(50)
               .fill()
@@ -21,13 +21,13 @@ const Rightbar = () => {
           </table>
         </div>
       </div>
-      EXPENSE
+      XƏRC İSTİQAMƏTLƏRİ
       <div className="expenselist">
         <div className="expense-table">
           <table className="table">
             <tr className="expense-header">
-              <th>Name</th>
-              <th style={{ textAlign: "right" }}>Amount</th>
+              <th>Ad</th>
+              <th style={{ textAlign: "right" }}>Məbləğ</th>
             </tr>
             {Array(50)
               .fill()

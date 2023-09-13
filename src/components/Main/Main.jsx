@@ -26,102 +26,108 @@ const Main = () => {
 
   const data2 = [
     {
-      name: "SDG 1",
+      name: " 1",
       uv: 4000,
       pv: 2400,
       amt: 2400,
     },
     {
-      name: "SDG 2",
+      name: " 2",
       uv: 3000,
       pv: 1398,
       amt: 2210,
     },
     {
-      name: "SDG 3",
+      name: " 3",
       uv: 2000,
-      pv: 9800,
+      pv: 2290,
       amt: 2290,
     },
     {
-      name: "SDG 4",
+      name: " 4",
       uv: 2780,
       pv: 3908,
       amt: 2000,
     },
     {
-      name: "SDG 5",
-      uv: 1890,
+      name: " 5",
+      uv: 2290,
       pv: 4800,
       amt: 2181,
     },
     {
-      name: "SDG 6",
+      name: " 6",
       uv: 2390,
-      pv: 3800,
+      pv: 2290,
       amt: 2500,
     },
     {
-      name: "SDG 7",
+      name: " 7",
+      uv: 3490,
+      pv: 2290,
+      amt: 2100,
+    },
+    {
+      name: " 8",
+      uv: 3490,
+      pv: 2290,
+      amt: 2100,
+    },
+    {
+      name: " 9",
       uv: 3490,
       pv: 4300,
       amt: 2100,
     },
     {
-      name: "SDG 8",
+      name: " 10",
       uv: 3490,
       pv: 4300,
       amt: 2100,
     },
     {
-      name: "SDG 9",
+      name: " 11",
       uv: 3490,
-      pv: 4300,
+      pv: 2290,
       amt: 2100,
     },
+
     {
-      name: "SDG 10",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-    {
-      name: "SDG 11",
+      name: " 12",
       uv: 3490,
       pv: 4300,
       amt: 2100,
     },
 
     {
-      name: "SDG 12",
+      name: " 13",
       uv: 3490,
       pv: 4300,
       amt: 2100,
     },
 
     {
-      name: "SDG 13",
+      name: " 14",
       uv: 3490,
       pv: 4300,
       amt: 2100,
     },
 
     {
-      name: "SDG 14",
+      name: " 15",
       uv: 3490,
       pv: 4300,
       amt: 2100,
     },
 
     {
-      name: "SDG 15",
+      name: " 16",
       uv: 3490,
       pv: 4300,
       amt: 2100,
     },
-
     {
-      name: "SDG 16",
+      name: " 17",
       uv: 3490,
       pv: 4300,
       amt: 2100,
@@ -207,7 +213,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      <div className="main-navigation">
+      {/* <div className="main-navigation">
         <Link to="/sdg" className="nav-item">
           Dashboard By SDG
         </Link>
@@ -220,7 +226,7 @@ const Main = () => {
         <Link to="/sdg16" className="nav-item">
           SDG 16 - Peace, Justice and Strong Institutions
         </Link>
-      </div>
+      </div> */}
       <div className="main-filters">
         <div className="filter budget-filter">
           <label htmlFor="budget"> BÜDCƏ SEKTORU</label>
