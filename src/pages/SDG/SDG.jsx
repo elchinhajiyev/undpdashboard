@@ -1,24 +1,23 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import LeftBar from "../../components/Leftbar/Leftbar";
 import Main from "../../components/Main/Main";
 import Rightbar from "../../components/Rightbar/Rightbar";
 import "./sdg.scss";
 import { expenses } from "../../Data/expenses";
 const SDG = () => {
-  // console.log(expenses);
-
+  const [filteredSdg, setFilteredSdg] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
-
+  const [showSdg, setShowSdg] = useState(true);
   //Category filter
   const handleCategory = (event) => {
     setSelectedCategory(event.target.value);
+    setShowSdg(true);
   };
 
   // Budce Sektoru filteri
 
   const handleSector = (event) => {
     setSelectedCategory(event.target.value);
-    console.log(event.target.value);
   };
   // Budce filteri
 
@@ -52,6 +51,7 @@ const SDG = () => {
 
   const result = filteredData(expenses, selectedCategory);
 
+  const [showExpense, setShowExpense] = useState(true);
   const [filteredExpense, setFilteredExpense] = useState({});
 
   const handleClick = (id) => {
@@ -59,18 +59,42 @@ const SDG = () => {
       (singleExpense) => singleExpense.id === id
     );
     setFilteredExpense(filteredData);
+    setShowSdg(false);
     console.log(filteredExpense);
   };
 
+  useEffect(() => {
+    // Tüm expenses içindeki SDG objelerini birleştirip toplamak için kullanılacak boş bir dizi oluşturun
+    const mergedSdg = [];
+    // expenses üzerinde dönerek SDG objelerini birleştirip toplayın
+    expenses?.forEach((element) => {
+      element.sdg?.forEach((item) => {
+        // Eğer mergedSdg içinde aynı "name" değerine sahip bir öğe varsa, totalamount'u güncelleyin; aksi halde yeni bir öğe ekleyin
+        const existingItem = mergedSdg.find(
+          (mergedItem) => mergedItem.name === item.name
+        );
+        if (existingItem) {
+          existingItem.totalamount += item.totalamount;
+        } else {
+          mergedSdg.push({ ...item });
+        }
+      });
+    });
+
+    setFilteredSdg(mergedSdg);
+  }, []);
+
   return (
     <div className="sdg-container">
-      <LeftBar handleCategory={handleCategory} />
+      <LeftBar handleCategory={handleCategory} setShowSdg={setShowSdg} />
       <Main
         handleSector={handleSector}
         handleBudce={handleBudce}
         handleDovlet={handleDovlet}
         result={result}
         filteredExpense={filteredExpense}
+        filteredSdg={filteredSdg}
+        showSdg={showSdg}
       />
       <Rightbar
         result={result}

@@ -39,7 +39,9 @@ const Rightbar = ({ result, handleClick, filteredExpense }) => {
             {filteredExpense?.hedef?.map((target, index) => (
               <tr className="list-item" key={index}>
                 <td>{target.hedefmaddesi}</td>
-                <td style={{ textAlign: "right" }}>{target.amount}</td>
+                <td style={{ textAlign: "right" }}>
+                  {formatNumber(target.amount)}
+                </td>
                 <div className="tooltip">{target.hedefadi}</div>
               </tr>
             ))}
