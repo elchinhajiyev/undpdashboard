@@ -117,31 +117,33 @@ const Main = ({
       </div>
       {showSdg ? (
         <div className="chart">
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart
-              width={500}
-              height={350}
-              data={data}
-              margin={{
-                top: 25,
-                right: 30,
-                left: 20,
-                bottom: 5,
+          <BarChart
+            angle={-90}
+            textAnchor="end"
+            width={850}
+            height={350}
+            data={data}
+            margin={{
+              top: 25,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" hide />
+            <Tooltip />
+            <Bar
+              barSize={30}
+              dataKey="total"
+              fill="#1466ae"
+              label={{
+                position: "top",
+                formatter: (value) => formatNumber(value),
               }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" hide />
-              <Tooltip />
-              <Bar
-                dataKey="total"
-                fill="#1466ae"
-                label={{
-                  position: "top",
-                  formatter: (value) => formatNumber(value),
-                }}
-              />
-            </BarChart>
-          </ResponsiveContainer>
+            />
+          </BarChart>
+
           <div className="icons">
             {" "}
             {icons.map((icon, index) => (
@@ -151,32 +153,35 @@ const Main = ({
         </div>
       ) : (
         <div className="chart">
-          <ResponsiveContainer width="95%" height={350}>
-            <BarChart
-              width={500}
-              height={350}
-              data={data2}
-              margin={{
-                top: 25,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" tick={<CustomIcon />} />
+          <BarChart
+            angle={-90}
+            textAnchor="end"
+            width={850}
+            height={350}
+            data={data2}
+            margin={{
+              top: 25,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" hide />
 
-              <Tooltip />
-              <Bar
-                dataKey="total"
-                fill="#1466ae"
-                label={{
-                  position: "top",
-                  formatter: (value) => formatNumber(value),
-                }}
-              />
-            </BarChart>
-          </ResponsiveContainer>
+            <Tooltip />
+            <Bar
+              fontSize={10}
+              barSize={30}
+              dataKey="total"
+              fill="#1466ae"
+              label={{
+                position: "top",
+                formatter: (value) => formatNumber(value),
+              }}
+            />
+          </BarChart>
+
           <div className="icons">
             {" "}
             {icons.map((icon, index) => (

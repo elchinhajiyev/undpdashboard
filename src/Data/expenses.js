@@ -1064,7 +1064,6 @@ export const icons = [
   sdg10,
   sdg11,
   sdg12,
-  sdg12,
   sdg13,
   sdg14,
   sdg15,
