@@ -8,7 +8,7 @@ import { BiPlanet } from "react-icons/bi";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { FaHandsHoldingChild } from "react-icons/fa6";
 
-const Leftbar = () => {
+const Leftbar = ({ handleCategory }) => {
   return (
     <div className="main-left">
       <div className="leftbar">
@@ -19,41 +19,33 @@ const Leftbar = () => {
           <p> DİM üzrə göstəricilər</p>
         </Link>
 
-        <button className="navigation">
-          <div className="navigation-item">
-            <BsGlobeAsiaAustralia className="nav-icon" />
-            Ümumi
-          </div>
+        <button onClick={handleCategory} value="" className="navigation">
+          <BsGlobeAsiaAustralia className="nav-icon" />
+          Ümumi
         </button>
-        <button className="navigation">
-          <div className="navigation-item">
-            <BiMaleFemale className="nav-icon" />
-            Gender
-          </div>
+        <button onClick={handleCategory} value="Gender" className="navigation">
+          <BiMaleFemale className="nav-icon" />
+          Gender
         </button>
-        <button className="navigation">
-          <div className="navigation-item">
-            <FaChild className="nav-icon" />
-            Uşaq
-          </div>
+        <button
+          onClick={handleCategory}
+          value="Childhood"
+          className="navigation"
+        >
+          <FaChild className="nav-icon" />
+          Uşaq
         </button>
-        <button className="navigation">
-          <div className="navigation-item">
-            <GiPeaceDove className="nav-icon" />
-            Sülh
-          </div>
+        <button onClick={handleCategory} value="Peace" className="navigation">
+          <GiPeaceDove className="nav-icon" />
+          Sülh
         </button>
-        <button className="navigation">
-          <div className="navigation-item">
-            <BiPlanet className="nav-icon" />
-            Dünya
-          </div>
+        <button onClick={handleCategory} value="Planet" className="navigation">
+          <BiPlanet className="nav-icon" />
+          Dünya
         </button>
-        <button className="navigation">
-          <div className="navigation-item">
-            <FaHandsHoldingChild className="nav-icon" />
-            Sosial rifah
-          </div>
+        <button onClick={handleCategory} value="Welfare" className="navigation">
+          <FaHandsHoldingChild className="nav-icon" />
+          Sosial rifah
         </button>
       </div>
       <div className="languages">

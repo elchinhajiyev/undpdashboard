@@ -1,5 +1,31 @@
+import { useEffect, useState } from "react";
 import "./rightbar.scss";
-const Rightbar = () => {
+const Rightbar = ({ result, handleClick, filteredExpense }) => {
+  const [filtered, setFiltered] = useState([]);
+  function formatNumber(number) {
+    if (number >= 1e9) {
+      return (number / 1e9).toFixed(1) + "B"; // Milyar
+    } else if (number >= 1e6) {
+      return (number / 1e6).toFixed(1) + "M"; // Milyon
+    } else {
+      return number.toString(); // Milyon veya milyar değilse, düz rakam olarak bırak
+    }
+  }
+
+  useEffect(() => {
+    setFiltered(result[0]);
+  }, []);
+
+  // const [filteredExpenses, setFilteredExpenses] = useState({});
+
+  // const handleClick = (id) => {
+  //   const filteredData = result?.find(
+  //     (singleExpense) => singleExpense.id === id
+  //   );
+  //   setFilteredExpenses(filteredData);
+  //   console.log(filteredExpenses);
+  // };
+
   return (
     <div className="rightbar">
       <div className="logo-area">LOGO AREA</div>
@@ -10,14 +36,13 @@ const Rightbar = () => {
               <th>DİM üzrə hədəf</th>
               <th style={{ textAlign: "right" }}>Məbləğ</th>
             </tr>
-            {Array(50)
-              .fill()
-              .map((_, index) => (
-                <tr className="list-item" key={index}>
-                  <td>3.8</td>
-                  <td style={{ textAlign: "right" }}>6933M</td>
-                </tr>
-              ))}
+            {filteredExpense?.hedef?.map((target, index) => (
+              <tr className="list-item" key={index}>
+                <td>{target.hedefmaddesi}</td>
+                <td style={{ textAlign: "right" }}>{target.amount}</td>
+                <div className="tooltip">{target.hedefadi}</div>
+              </tr>
+            ))}
           </table>
         </div>
       </div>
@@ -29,17 +54,24 @@ const Rightbar = () => {
               <th>Ad</th>
               <th style={{ textAlign: "right" }}>Məbləğ</th>
             </tr>
-            {Array(50)
-              .fill()
-              .map((_, index) => (
-                <tr className="list-item" key={index}>
-                  <td>
-                    Azərbaycan Respublikası Dövlət Neft Fondunun idarə edilməsi
-                    ilə bağlı xərclər
-                  </td>
-                  <td style={{ textAlign: "right" }}>6933M</td>
-                </tr>
-              ))}
+            {result?.map((single, index) => (
+              <tr className="list-item" key={index}>
+                <td
+                  onClick={() => handleClick(single.id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {single.xerc}
+                </td>
+                <td style={{ textAlign: "right" }}>
+                  {formatNumber(
+                    single.sdg.reduce(
+                      (acc, singlesdg) => acc + singlesdg.totalamount,
+                      0
+                    )
+                  )}
+                </td>
+              </tr>
+            ))}
           </table>
         </div>
       </div>

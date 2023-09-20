@@ -1,3 +1,21 @@
+import sdg1 from "../assets/sdg/1.png";
+import sdg2 from "../assets/sdg/2.png";
+import sdg3 from "../assets/sdg/3.png";
+import sdg4 from "../assets/sdg/4.png";
+import sdg5 from "../assets/sdg/5.png";
+import sdg6 from "../assets/sdg/6.png";
+import sdg7 from "../assets/sdg/7.png";
+import sdg8 from "../assets/sdg/8.png";
+import sdg9 from "../assets/sdg/9.png";
+import sdg10 from "../assets/sdg/10.png";
+import sdg11 from "../assets/sdg/11.png";
+import sdg12 from "../assets/sdg/12.png";
+import sdg13 from "../assets/sdg/13.png";
+import sdg14 from "../assets/sdg/14.png";
+import sdg15 from "../assets/sdg/15.png";
+import sdg16 from "../assets/sdg/16.jpeg";
+import sdg17 from "../assets/sdg/17.png";
+
 export const expenses = [
   {
     id: 58,
@@ -5,18 +23,110 @@ export const expenses = [
     dovletqurumu: "DSMF",
     budcesektoru: "Sosial müdafiə və sosial təminat",
     budce: "ARDB",
-    kategoriya: ["Gender"],
+    kategoriya: "Gender",
     xercmaddesi: "7.6",
     sdg: [
       {
         id: 1,
         name: "SDG1",
+        icon: sdg1,
         totalamount: 2371799225,
+      },
+      {
+        id: 2,
+        name: "SDG2",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 3,
+        name: "SDG3",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 4,
+        name: "SDG4",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 5,
+        name: "SDG5",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 6,
+        name: "SDG6",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 7,
+        name: "SDG7",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 8,
+        name: "SDG8",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 9,
+        name: "SDG9",
+        icon: sdg1,
+        totalamount: 0,
       },
       {
         id: 21,
         name: "SDG10",
+        icon: sdg10,
         totalamount: 124831538,
+      },
+      {
+        id: 11,
+        name: "SDG11",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 12,
+        name: "SDG12",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 13,
+        name: "SDG13",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 14,
+        name: "SDG14",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 15,
+        name: "SDG15",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 16,
+        name: "SDG16",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 17,
+        name: "SDG17",
+        icon: sdg1,
+        totalamount: 0,
       },
     ],
     hedef: [
@@ -70,13 +180,110 @@ export const expenses = [
     dovletqurumu: "DMA",
     budcesektoru: "Sosial müdafiə və sosial təminat",
     budce: "ISF",
-    kategoriya: ["Welfare"],
+    kategoriya: "Planet",
     xercmaddesi: "1",
     sdg: [
       {
         id: 56,
         name: "SDG1",
+        icon: sdg1,
         totalamount: 8500000,
+      },
+      {
+        id: 2,
+        name: "SDG2",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 3,
+        name: "SDG3",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 4,
+        name: "SDG4",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 5,
+        name: "SDG5",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 6,
+        name: "SDG6",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 7,
+        name: "SDG7",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 8,
+        name: "SDG8",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 9,
+        name: "SDG9",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 21,
+        name: "SDG10",
+        icon: sdg10,
+        totalamount: 0,
+      },
+      {
+        id: 11,
+        name: "SDG11",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 12,
+        name: "SDG12",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 13,
+        name: "SDG13",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 14,
+        name: "SDG14",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 15,
+        name: "SDG15",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 16,
+        name: "SDG16",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 17,
+        name: "SDG17",
+        icon: sdg1,
+        totalamount: 0,
       },
     ],
     hedef: [
@@ -95,13 +302,110 @@ export const expenses = [
     dovletqurumu: "DSMF",
     budcesektoru: "Sosial müdafiə və sosial təminat",
     budce: "DSMF",
-    kategoriya: ["Welfare"],
+    kategoriya: "Welfare",
     xercmaddesi: "1",
     sdg: [
       {
         id: 42,
         name: "SDG1",
+        icon: sdg1,
         totalamount: 5431199497,
+      },
+      {
+        id: 2,
+        name: "SDG2",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 3,
+        name: "SDG3",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 4,
+        name: "SDG4",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 5,
+        name: "SDG5",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 6,
+        name: "SDG6",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 7,
+        name: "SDG7",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 8,
+        name: "SDG8",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 9,
+        name: "SDG9",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 21,
+        name: "SDG10",
+        icon: sdg10,
+        totalamount: 0,
+      },
+      {
+        id: 11,
+        name: "SDG11",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 12,
+        name: "SDG12",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 13,
+        name: "SDG13",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 14,
+        name: "SDG14",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 15,
+        name: "SDG15",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 16,
+        name: "SDG16",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 17,
+        name: "SDG17",
+        icon: sdg1,
+        totalamount: 0,
       },
     ],
     hedef: [
@@ -120,13 +424,110 @@ export const expenses = [
     dovletqurumu: "MN",
     budcesektoru: "Ümumi dövlət xidmətləri",
     budce: "DSMF",
-    kategoriya: ["Welfare", "Gender"],
+    kategoriya: "Welfare",
     xercmaddesi: "7.1.3",
     sdg: [
       {
         id: 43,
         name: "SDG1",
+        icon: sdg1,
         totalamount: 12000000,
+      },
+      {
+        id: 2,
+        name: "SDG2",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 3,
+        name: "SDG3",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 4,
+        name: "SDG4",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 5,
+        name: "SDG5",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 6,
+        name: "SDG6",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 7,
+        name: "SDG7",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 8,
+        name: "SDG8",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 9,
+        name: "SDG9",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 21,
+        name: "SDG10",
+        icon: sdg10,
+        totalamount: 0,
+      },
+      {
+        id: 11,
+        name: "SDG11",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 12,
+        name: "SDG12",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 13,
+        name: "SDG13",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 14,
+        name: "SDG14",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 15,
+        name: "SDG15",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 16,
+        name: "SDG16",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 17,
+        name: "SDG17",
+        icon: sdg1,
+        totalamount: 0,
       },
     ],
     hedef: [
@@ -145,13 +546,110 @@ export const expenses = [
     dovletqurumu: "ARDNF",
     budcesektoru: "Ümumi dövlət xidmətləri",
     budce: "ARDNF",
-    kategoriya: ["Gender", "Welfare"],
+    kategoriya: "Welfare",
     xercmaddesi: "3.4",
     sdg: [
       {
         id: 167,
         name: "SDG1",
+        icon: sdg1,
         totalamount: 33988600,
+      },
+      {
+        id: 2,
+        name: "SDG2",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 3,
+        name: "SDG3",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 4,
+        name: "SDG4",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 5,
+        name: "SDG5",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 6,
+        name: "SDG6",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 7,
+        name: "SDG7",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 8,
+        name: "SDG8",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 9,
+        name: "SDG9",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 21,
+        name: "SDG10",
+        icon: sdg10,
+        totalamount: 0,
+      },
+      {
+        id: 11,
+        name: "SDG11",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 12,
+        name: "SDG12",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 13,
+        name: "SDG13",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 14,
+        name: "SDG14",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 15,
+        name: "SDG15",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 16,
+        name: "SDG16",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 17,
+        name: "SDG17",
+        icon: sdg1,
+        totalamount: 0,
       },
     ],
     hedef: [
@@ -170,13 +668,110 @@ export const expenses = [
     dovletqurumu: "KTN",
     budcesektoru: "Kənd Təsərrüfatı",
     budce: "ARDB",
-    kategoriya: ["Childhood", "Welfare", "Peace"],
+    kategoriya: "Childhood",
     xercmaddesi: "7.9.1",
     sdg: [
       {
+        id: 217,
+        name: "SDG1",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
         id: 2167,
         name: "SDG2",
+        icon: sdg2,
         totalamount: 477483667,
+      },
+      {
+        id: 3,
+        name: "SDG3",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 4,
+        name: "SDG4",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 5,
+        name: "SDG5",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 6,
+        name: "SDG6",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 7,
+        name: "SDG7",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 8,
+        name: "SDG8",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 9,
+        name: "SDG9",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 21,
+        name: "SDG10",
+        icon: sdg10,
+        totalamount: 124831538,
+      },
+      {
+        id: 11,
+        name: "SDG11",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 12,
+        name: "SDG12",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 13,
+        name: "SDG13",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 14,
+        name: "SDG14",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 15,
+        name: "SDG15",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 16,
+        name: "SDG16",
+        icon: sdg1,
+        totalamount: 0,
+      },
+      {
+        id: 17,
+        name: "SDG17",
+        icon: sdg1,
+        totalamount: 0,
       },
     ],
     hedef: [
@@ -210,4 +805,25 @@ export const expenses = [
       },
     ],
   },
+];
+
+export const icons = [
+  sdg1,
+  sdg2,
+  sdg3,
+  sdg4,
+  sdg5,
+  sdg6,
+  sdg7,
+  sdg8,
+  sdg9,
+  sdg10,
+  sdg11,
+  sdg12,
+  sdg12,
+  sdg13,
+  sdg14,
+  sdg15,
+  sdg16,
+  sdg17,
 ];

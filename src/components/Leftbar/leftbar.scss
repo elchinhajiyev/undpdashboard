@@ -35,9 +35,12 @@
         .navigation{
             height: 40px;
             width: 90%;
+            display: flex;
+            align-items: center;
+            position: relative;
             cursor: pointer;
             border: none;
-    
+            text-align: left;
             background-color: #e7e9eb;
             border-radius: 5px;
             &:hover{
@@ -50,13 +53,21 @@
                 text-align: left;
                 display: flex;
                 align-items: center;
+                text-align: left;
+                position: relative;
                 
-                .nav-icon{
-                    margin-right: 10px;
-                    
-                }
+            
             }
-    
+             
+        .nav-icon{
+                    margin-right: 10px;
+                    font-size: 25px;
+                    position: absolute;
+                    right: 0;
+                    color: grey;
+                    
+                  
+                }
          
         }
     }
