@@ -134,6 +134,7 @@ const Main = ({
             <XAxis dataKey="name" hide />
             <Tooltip />
             <Bar
+              minPointSize={3}
               barSize={30}
               dataKey="total"
               fill="#1466ae"
@@ -171,6 +172,7 @@ const Main = ({
 
             <Tooltip />
             <Bar
+              minPointSize={3}
               fontSize={10}
               barSize={30}
               dataKey="total"

@@ -12,9 +12,14 @@ const Rightbar = ({ result, handleClick, filteredExpense }) => {
     }
   }
 
-  useEffect(() => {
-    setFiltered(result[0]);
-  }, []);
+  let totalAmount = 0;
+
+  result?.forEach((singleitem) => {
+    singleitem.sdg?.forEach((singlesdg) => {
+      const amount = singlesdg.totalamount || 0; // Eğer totalamount yoksa, 0 olarak kabul edin
+      totalAmount += amount; // Her bir singlesdg.totalamount değerini toplam değişkenine ekleyin
+    });
+  });
 
   // const [filteredExpenses, setFilteredExpenses] = useState({});
 
@@ -75,6 +80,20 @@ const Rightbar = ({ result, handleClick, filteredExpense }) => {
               </tr>
             ))}
           </table>
+        </div>
+      </div>
+      <div
+        className="total"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "5px",
+        }}
+      >
+        <p style={{ fontSize: "small" }}>Total amount</p>
+        <div style={{ fontSize: "small", fontWeight: "bold" }}>
+          {formatNumber(totalAmount)}
         </div>
       </div>
     </div>
