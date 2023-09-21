@@ -30,7 +30,7 @@ const SDG = () => {
   const handleDovlet = (e) => {
     setSelectedCategory(e.target.value);
   };
-
+  const [chartResult, setChartResult] = useState([]);
   //All filters
   function filteredData(expenses, selected) {
     let filteredExpenses = expenses; // expenses dizisini filteredExpenses'e kopyaladık
@@ -60,14 +60,13 @@ const SDG = () => {
     );
     setFilteredExpense(filteredData);
     setShowSdg(false);
-    console.log(filteredExpense);
   };
 
   useEffect(() => {
     // Tüm expenses içindeki SDG objelerini birleştirip toplamak için kullanılacak boş bir dizi oluşturun
     const mergedSdg = [];
     // expenses üzerinde dönerek SDG objelerini birleştirip toplayın
-    expenses?.forEach((element) => {
+    result?.forEach((element) => {
       element.sdg?.forEach((item) => {
         // Eğer mergedSdg içinde aynı "name" değerine sahip bir öğe varsa, totalamount'u güncelleyin; aksi halde yeni bir öğe ekleyin
         const existingItem = mergedSdg.find(

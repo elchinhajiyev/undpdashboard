@@ -91,7 +91,7 @@ const Rightbar = ({ result, handleClick, filteredExpense }) => {
           padding: "5px",
         }}
       >
-        <p style={{ fontSize: "small" }}>Total amount</p>
+        <p style={{ fontSize: "small" }}>Ümumi məbləğ</p>
         <div style={{ fontSize: "small", fontWeight: "bold" }}>
           {formatNumber(totalAmount)}
         </div>

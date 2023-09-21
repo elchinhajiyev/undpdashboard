@@ -1,0 +1,134 @@
+.sector{
+    background-color: #f4f2f2;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+    .header{
+        height: 70px;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid white;
+        background-color: var(--dark-blue);
+        color: white;
+       padding-left: 20px;
+       margin-bottom: 20px;
+        a{
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+            display: flex;
+        align-items: center;
+            
+        }
+        h1{
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            
+        }
+    }
+    .body{
+       
+        width: 80%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        display: flex;
+        gap: 10px;
+
+        .chart{
+            border-radius: 10px;
+            border: 1px solid rgb(224, 223, 223);
+            background-color: white;
+            width: 700px;
+            height: 600px;
+            padding: 40px;
+            box-sizing: border-box;
+            padding: 0 10px;
+
+            .chart-header{
+               
+                font-weight: bold;
+                padding: 20px;
+            }
+           
+        }
+        .rightarea{
+            padding: 20px 10px;
+            background-color: white;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 1px solid rgb(224, 223, 223);
+
+            .filter-category{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                
+                .navigation{
+                    height: 40px;
+                    width: 110px;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    cursor: pointer;
+                    border: none;
+                    text-align: left;
+                    background-color: var(--dark-blue);
+                    border-radius: 5px;
+                    color: white;
+                    &:hover{
+                        background-color: #4084d7 ;
+                        }  
+                    
+                    .navigation-item{
+                        
+                        font-weight: 500;
+                        text-align: left;
+                        display: flex;
+                        align-items: center;
+                        text-align: left;
+                        position: relative;
+                        
+                    
+                    }
+                     
+                .nav-icon{
+                            margin-right: 10px;
+                            font-size: 18px;
+                            position: absolute;
+                            right: 0;
+                            color: white;
+                            
+                          
+                        }
+                 
+                }
+            } 
+            
+            .sdg-target{
+                margin-top: 50px;
+                .icons{
+                    width: 270px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 3px;
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        object-fit: cover;
+                    }
+                    .all{
+                        height: 50px;
+                        width: 100%;
+                        background-color: #4084d7;
+                    }
+                }
+            }
+            }
+        }
+    }
+  
