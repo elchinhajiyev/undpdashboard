@@ -111,6 +111,7 @@
             
             .sdg-target{
                 margin-top: 50px;
+                display: flex;
                 .icons{
                     width: 270px;
                     display: flex;
@@ -120,11 +121,29 @@
                         width: 50px;
                         height: 50px;
                         object-fit: cover;
+                        cursor: pointer;
+                        &:hover{
+                            filter: opacity(70%);
+                        }
                     }
-                    .all{
-                        height: 50px;
+                   
+                }
+                .targets{
+                    width: 150px;
+                    max-height: 120px;
+
+                    select{
+                        height: 30px;
+                        background-color: #3498db;
+                        padding: 5px;
+                        color: #ffffff;
                         width: 100%;
-                        background-color: #4084d7;
+                        
+                        option{
+                        font-size: 16px;
+                        background-color: #3498db;
+                        padding: 5px;
+                        }
                     }
                 }
             }

@@ -86,7 +86,7 @@ const Sector = () => {
   return (
     <div className="sector">
       <div className="header">
-        <Link>
+        <Link to="/">
           <IoArrowBackOutline style={{ fontSize: "24px" }} />
           <h1>Sektor üzrə göstəricilər</h1>
         </Link>
@@ -163,13 +163,48 @@ const Sector = () => {
               Sosial rifah
             </button>
           </div>
-
           <div className="sdg-target">
             <div className="icons">
               {" "}
               {icons.map((icon, index) => (
                 <img src={icon} key={index} alt="" />
               ))}
+            </div>
+            <div className="targets">
+              DİM üzrə hədəf
+              <select name="Targets" id="">
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+                <option value="">1.1</option>
+              </select>
             </div>
           </div>
         </div>
