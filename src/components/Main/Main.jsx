@@ -1,4 +1,5 @@
 import React, { PureComponent, useState, useEffect } from "react";
+import { Chart } from "react-google-charts";
 import {
   ResponsiveContainer,
   BarChart,
@@ -8,6 +9,8 @@ import {
   Legend,
   CartesianGrid,
   Tooltip,
+  PieChart,
+  Pie,
 } from "recharts";
 import "./main.scss";
 import { Link } from "react-router-dom";
@@ -22,6 +25,13 @@ const Main = ({
   filteredSdg,
   showSdg,
 }) => {
+  let totalAmount = 0;
+  result?.forEach((singleitem) => {
+    singleitem.sdg?.forEach((singlesdg) => {
+      const amount = singlesdg.totalamount || 0; // Eğer totalamount yoksa, 0 olarak kabul edin
+      totalAmount += amount; // Her bir singlesdg.totalamount değerini toplam değişkenine ekleyin
+    });
+  });
   function formatNumber(number) {
     if (number >= 1e9) {
       return (number / 1e9).toFixed(1) + "B"; // Milyar
@@ -47,6 +57,54 @@ const Main = ({
     name: single.name,
     total: single.totalamount,
   }));
+
+  //Pie chart ucun datanin filter edilmesi
+  const options = {
+    title: "Büdcə sektoruna görə ümumi məbləğin bölünməsi",
+    is3D: true,
+    backgroundColor: "none",
+  };
+
+  const totalBudgetAmount = result?.reduce((total, item) => {
+    return (
+      total + item.hedef.reduce((subTotal, hedef) => subTotal + hedef.amount, 0)
+    );
+  }, 0);
+
+  // Budçe bazında toplam miktarları hesaplamak için bir nesne oluşturun
+  const budceTotalAmounts = {};
+
+  result?.forEach((item) => {
+    const budce = item.budce;
+    const totalAmount = item.hedef.reduce(
+      (total, hedef) => total + hedef.amount,
+      0
+    );
+
+    if (budceTotalAmounts[budce]) {
+      budceTotalAmounts[budce] += totalAmount;
+    } else {
+      budceTotalAmounts[budce] = totalAmount;
+    }
+  });
+
+  // Budçe toplam miktarları ve yüzdelik değerleri hesaplamak için bir dizi oluşturun
+  const budceData = Object.keys(budceTotalAmounts).map((budce) => ({
+    budce,
+    totalAmount: budceTotalAmounts[budce],
+    percentage: (budceTotalAmounts[budce] / totalBudgetAmount) * 100, // Toplam bütçeye göre yüzde hesaplama
+  }));
+
+  // Rechart için uygun veri formatına dönüştürün
+  // const pieChartData = budceData.map((item) => ({
+  //   name: item.budce,
+  //   value: item.totalAmount,
+  // }));
+
+  const pieChartData = [
+    ["Task", "Hours per Day"],
+    ...budceData.map((item) => [item.budce, item.totalAmount]),
+  ];
 
   return (
     <div className="main">
@@ -93,6 +151,7 @@ const Main = ({
           </select>
         </div>
       </div>
+
       {showSdg ? (
         <div className="chart">
           <BarChart
@@ -170,6 +229,18 @@ const Main = ({
           </div>
         </div>
       )}
+      <div className="piechart">
+        <div className="totalsumsection">{formatNumber(totalAmount)} USD</div>
+        <div className="diagramsection">
+          <Chart
+            chartType="PieChart"
+            data={pieChartData}
+            options={options}
+            width={"100%"}
+            height={"200px"}
+          />
+        </div>
+      </div>
     </div>
   );
 };
