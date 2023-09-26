@@ -25,16 +25,7 @@ import { GiPeaceDove } from "react-icons/gi";
 import { BiPlanet } from "react-icons/bi";
 import { FaHandsHoldingChild } from "react-icons/fa6";
 import { IoArrowBackOutline } from "react-icons/io5";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { icons, expenses } from "../../Data/expenses";
 const Sector = () => {
   function formatNumber(number) {
@@ -46,8 +37,30 @@ const Sector = () => {
       return number.toString(); // Milyon veya milyar değilse, düz rakam olarak bırak
     }
   }
-  const handleCategory = () => {};
+  const [selectedCategory, setSelectedCategory] = useState();
 
+  const handleCategory = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const handleReset = (event) => {
+    setSelectedCategory(null);
+  };
+  function filteredData(expenses, selected) {
+    let filteredExpenses = expenses; // expenses array filteredExpenses'e kopyaladıq
+
+    if (selected) {
+      // Eğer bir filtre seçildiyse, filtrelemeyi yap
+      filteredExpenses = filteredExpenses.filter(
+        ({ kategoriya }) => kategoriya === selected
+      );
+    }
+
+    return filteredExpenses;
+  }
+
+  const resultCat = filteredData(expenses, selectedCategory);
+  // console.log(resultCat);
   const processData = (expenses) => {
     const result = {};
 
@@ -77,68 +90,66 @@ const Sector = () => {
   // console.log(result);
 
   const [selectedSDG, setSelectedSDG] = useState(null);
-  const [allSdg, setAllSdg] = useState(null);
 
+  function filteredData(expenses, selected) {
+    let filteredExpenses = expenses;
+
+    if (selected) {
+      filteredExpenses = filteredExpenses.filter(
+        ({ kategoriya }) => kategoriya === selected
+      );
+    }
+
+    return filteredExpenses; // Kategodiya secilmis data
+  }
+  const categoryResult = filteredData(expenses, selectedCategory);
   const handleButtonClick = (sdgKey) => {
     setSelectedSDG(result[sdgKey]);
   };
 
-  // const filterDataByString = (selectedSDG, searchString) => {
-  //   if (!selectedSDG) return null;
-
-  //   const filteredData = {};
-
-  //   for (const [key, value] of Object.entries(selectedSDG)) {
-  //     if (key.toLowerCase().includes(searchString.toLowerCase())) {
-  //       filteredData[key] = value;
-  //     }
-  //   }
-
-  //   return filteredData;
-  // };
-
   const formatDataForBarChart = (selectedSDG) => {
     if (!selectedSDG) return null;
-
     const formattedData = [];
-
     for (const [key, value] of Object.entries(selectedSDG)) {
       formattedData.push({
         name: key,
         value: value,
       });
     }
-
     return formattedData;
   };
-
   const formattedData = formatDataForBarChart(selectedSDG);
 
-  const formatDataForBarChartDefault = (result) => {
-    const formattedData = [];
+  ////////////////////////////////////////////////////////////////
 
-    for (const sdgKey in result) {
-      if (result.hasOwnProperty(sdgKey)) {
-        const sdgData = result[sdgKey];
+  var filtrelenmisSDGIsimleri = [];
 
-        for (const categoryKey in sdgData) {
-          if (sdgData.hasOwnProperty(categoryKey)) {
-            formattedData.push({
-              sdg: sdgKey,
-              category: categoryKey,
-              value: sdgData[categoryKey],
-            });
-          }
-        }
+  resultCat.forEach(function (item) {
+    item.sdg.forEach(function (sdgItem) {
+      if (sdgItem.totalamount > 0) {
+        filtrelenmisSDGIsimleri.push(sdgItem.name);
       }
-    }
+    });
+  });
 
-    return formattedData;
-  };
+  // Tekrarlanan SDG isimlerini sil
+  var uniqueSDGIsimleri = [...new Set(filtrelenmisSDGIsimleri)];
 
-  const formattedDataDefault = formatDataForBarChartDefault(result);
-  console.log(formattedDataDefault);
+  console.log(uniqueSDGIsimleri);
+  var eslesenSDGIsimleri = Object.keys(result).filter((sdgKey) =>
+    uniqueSDGIsimleri.includes(sdgKey)
+  );
 
+  const selectedhedef = [].concat(
+    ...resultCat.map((item) =>
+      item.hedef.map((hedef) => ({
+        hedefmaddesi: hedef.hedefmaddesi,
+        hedefadi: hedef.hedefadi,
+        amount: hedef.amount,
+      }))
+    )
+  );
+  console.log(selectedhedef);
   return (
     <div className="sector">
       <div className="header">
@@ -203,7 +214,7 @@ const Sector = () => {
         </div>
         <div className="rightarea">
           <div className="filter-category">
-            <button onClick={handleCategory} value="" className="navigation">
+            <button onClick={handleReset} value="" className="navigation">
               <BsGlobeAsiaAustralia className="nav-icon" />
               Ümumi
             </button>
@@ -250,7 +261,7 @@ const Sector = () => {
           </div>
           <div className="sdg-target">
             <div className="icons">
-              {Object.keys(result).map((sdgKey) => (
+              {eslesenSDGIsimleri.map((sdgKey) => (
                 <div key={sdgKey} onClick={() => handleButtonClick(sdgKey)}>
                   <img
                     src={
@@ -302,39 +313,24 @@ const Sector = () => {
             </div>
             <div className="targets">
               DİM üzrə hədəf
-              <select name="Targets" id="">
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-                <option value="">1.1</option>
-              </select>
+              <div className="target-list">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Hedef Maddəsi</th>
+                      <th>Məbləğ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {selectedhedef.map((singlehedef) => (
+                      <tr>
+                        <td>{singlehedef.hedefmaddesi}</td>
+                        <td>{formatNumber(singlehedef.amount)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

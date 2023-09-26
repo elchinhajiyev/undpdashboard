@@ -30,7 +30,7 @@ const SDG = () => {
   const handleDovlet = (e) => {
     setSelectedCategory(e.target.value);
   };
-  const [chartResult, setChartResult] = useState([]);
+
   //All filters
   function filteredData(expenses, selected) {
     let filteredExpenses = expenses; // expenses dizisini filteredExpenses'e kopyaladık

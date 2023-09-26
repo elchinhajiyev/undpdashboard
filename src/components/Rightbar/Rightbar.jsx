@@ -21,16 +21,6 @@ const Rightbar = ({ result, handleClick, filteredExpense }) => {
     });
   });
 
-  // const [filteredExpenses, setFilteredExpenses] = useState({});
-
-  // const handleClick = (id) => {
-  //   const filteredData = result?.find(
-  //     (singleExpense) => singleExpense.id === id
-  //   );
-  //   setFilteredExpenses(filteredData);
-  //   console.log(filteredExpenses);
-  // };
-
   return (
     <div className="rightbar">
       <div className="logo-area">LOGO AREA</div>
