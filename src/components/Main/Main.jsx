@@ -71,7 +71,6 @@ const Main = ({
     );
   }, 0);
 
-  // Budçe bazında toplam miktarları hesaplamak için bir nesne oluşturun
   const budceTotalAmounts = {};
 
   result?.forEach((item) => {
@@ -88,21 +87,15 @@ const Main = ({
     }
   });
 
-  // Budçe toplam miktarları ve yüzdelik değerleri hesaplamak için bir dizi oluşturun
+  // Budce miqdarin faizle hesablanmasi
   const budceData = Object.keys(budceTotalAmounts).map((budce) => ({
     budce,
     totalAmount: budceTotalAmounts[budce],
-    percentage: (budceTotalAmounts[budce] / totalBudgetAmount) * 100, // Toplam bütçeye göre yüzde hesaplama
+    percentage: (budceTotalAmounts[budce] / totalBudgetAmount) * 100, // Umumi budceye gore faiz hesablama
   }));
 
-  // Rechart için uygun veri formatına dönüştürün
-  // const pieChartData = budceData.map((item) => ({
-  //   name: item.budce,
-  //   value: item.totalAmount,
-  // }));
-
   const pieChartData = [
-    ["Task", "Hours per Day"],
+    ["Büdcə sektoru", "Məbləğ"],
     ...budceData.map((item) => [item.budce, item.totalAmount]),
   ];
 

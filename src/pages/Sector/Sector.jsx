@@ -1,4 +1,21 @@
-import React from "react";
+import SDG1 from "../../assets/sdg/1.png";
+import SDG2 from "../../assets/sdg/2.png";
+import SDG3 from "../../assets/sdg/3.png";
+import SDG4 from "../../assets/sdg/4.png";
+import SDG5 from "../../assets/sdg/5.png";
+import SDG6 from "../../assets/sdg/6.png";
+import SDG7 from "../../assets/sdg/7.png";
+import SDG8 from "../../assets/sdg/8.png";
+import SDG9 from "../../assets/sdg/9.png";
+import SDG10 from "../../assets/sdg/10.png";
+import SDG11 from "../../assets/sdg/11.png";
+import SDG12 from "../../assets/sdg/12.png";
+import SDG13 from "../../assets/sdg/13.png";
+import SDG14 from "../../assets/sdg/14.png";
+import SDG15 from "../../assets/sdg/15.png";
+import SDG16 from "../../assets/sdg/16.jpeg";
+import SDG17 from "../../assets/sdg/17.png";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./sector.scss";
 import { BsGlobeAsiaAustralia } from "react-icons/bs";
@@ -18,71 +35,110 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { icons } from "../../Data/expenses";
+import { icons, expenses } from "../../Data/expenses";
 const Sector = () => {
+  function formatNumber(number) {
+    if (number >= 1e9) {
+      return (number / 1e9).toFixed(1) + "B"; // Milyar
+    } else if (number >= 1e6) {
+      return (number / 1e6).toFixed(1) + "M"; // Milyon
+    } else {
+      return number.toString(); // Milyon veya milyar değilse, düz rakam olarak bırak
+    }
+  }
   const handleCategory = () => {};
-  const data = [
-    {
-      name: "Page A",
-      uv: 5000,
-      pv: 3400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page H",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-    {
-      name: "Page T",
-      uv: 3490,
-      pv: 4400,
-      amt: 2100,
-    },
-    {
-      name: "Page Z",
-      uv: 3490,
-      pv: 4900,
-      amt: 2100,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 5000,
-      amt: 2100,
-    },
-  ];
+
+  const processData = (expenses) => {
+    const result = {};
+
+    expenses.forEach((item) => {
+      item.sdg.forEach((sdgItem) => {
+        const sdgicon = sdgItem.icon;
+        const sdgName = sdgItem.name;
+        const budcesektoru = item.budcesektoru;
+        const totalamount = sdgItem.totalamount;
+
+        if (!result[sdgName]) {
+          result[sdgName] = {};
+        }
+
+        if (!result[sdgName][budcesektoru]) {
+          result[sdgName][budcesektoru] = 0;
+        }
+
+        result[sdgName][budcesektoru] += totalamount;
+      });
+    });
+
+    return result;
+  };
+
+  const result = processData(expenses);
+  // console.log(result);
+
+  const [selectedSDG, setSelectedSDG] = useState(null);
+  const [allSdg, setAllSdg] = useState(null);
+
+  const handleButtonClick = (sdgKey) => {
+    setSelectedSDG(result[sdgKey]);
+  };
+
+  // const filterDataByString = (selectedSDG, searchString) => {
+  //   if (!selectedSDG) return null;
+
+  //   const filteredData = {};
+
+  //   for (const [key, value] of Object.entries(selectedSDG)) {
+  //     if (key.toLowerCase().includes(searchString.toLowerCase())) {
+  //       filteredData[key] = value;
+  //     }
+  //   }
+
+  //   return filteredData;
+  // };
+
+  const formatDataForBarChart = (selectedSDG) => {
+    if (!selectedSDG) return null;
+
+    const formattedData = [];
+
+    for (const [key, value] of Object.entries(selectedSDG)) {
+      formattedData.push({
+        name: key,
+        value: value,
+      });
+    }
+
+    return formattedData;
+  };
+
+  const formattedData = formatDataForBarChart(selectedSDG);
+
+  const formatDataForBarChartDefault = (result) => {
+    const formattedData = [];
+
+    for (const sdgKey in result) {
+      if (result.hasOwnProperty(sdgKey)) {
+        const sdgData = result[sdgKey];
+
+        for (const categoryKey in sdgData) {
+          if (sdgData.hasOwnProperty(categoryKey)) {
+            formattedData.push({
+              sdg: sdgKey,
+              category: categoryKey,
+              value: sdgData[categoryKey],
+            });
+          }
+        }
+      }
+    }
+
+    return formattedData;
+  };
+
+  const formattedDataDefault = formatDataForBarChartDefault(result);
+  console.log(formattedDataDefault);
+
   return (
     <div className="sector">
       <div className="header">
@@ -95,25 +151,54 @@ const Sector = () => {
         <div className="chart">
           <div className="chart-header">DİM üzrə finans</div>
           <div className="barchart">
-            <BarChart
-              width={700}
-              layout="vertical"
-              height={500}
-              data={data}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <YAxis type="category" dataKey="name" />
-              <XAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="pv" fill="#1466ae" />
-            </BarChart>
+            {formattedData && (
+              <BarChart
+                layout="vertical"
+                width={700}
+                height={400}
+                data={formattedData}
+                margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
+              >
+                <CartesianGrid strokeDasharray="2 3" />
+                <XAxis
+                  label={{
+                    position: "right",
+                    formatter: (value) => formatNumber(value),
+                    fill: "gray",
+                  }}
+                  tick={{ fontSize: 10, fill: "gray", lineHeight: 1, dy: 10 }}
+                  type="number"
+                  dataKey="value"
+                />
+                <YAxis
+                  width={100}
+                  label={{
+                    fontSize: 8,
+                    fill: "gray",
+                  }}
+                  tick={{
+                    dy: 0,
+                    dx: -10,
+                    fontSize: 13,
+                    fill: "gray",
+                    width: 50,
+                  }}
+                  type="category"
+                  dataKey="name"
+                />
+                <Tooltip />
+
+                <Bar
+                  label={{
+                    position: "right",
+                    formatter: (value) => formatNumber(value),
+                  }}
+                  dataKey="value"
+                  fill="#1466ae"
+                  barSize={40}
+                />
+              </BarChart>
+            )}
           </div>
         </div>
         <div className="rightarea">
@@ -165,10 +250,55 @@ const Sector = () => {
           </div>
           <div className="sdg-target">
             <div className="icons">
-              {" "}
+              {Object.keys(result).map((sdgKey) => (
+                <div key={sdgKey} onClick={() => handleButtonClick(sdgKey)}>
+                  <img
+                    src={
+                      sdgKey === "SDG1"
+                        ? SDG1
+                        : sdgKey === "SDG2"
+                        ? SDG2
+                        : sdgKey === "SDG3"
+                        ? SDG3
+                        : sdgKey === "SDG4"
+                        ? SDG4
+                        : sdgKey === "SDG5"
+                        ? SDG5
+                        : sdgKey === "SDG6"
+                        ? SDG6
+                        : sdgKey === "SDG7"
+                        ? SDG7
+                        : sdgKey === "SDG8"
+                        ? SDG8
+                        : sdgKey === "SDG9"
+                        ? SDG9
+                        : sdgKey === "SDG10"
+                        ? SDG10
+                        : sdgKey === "SDG11"
+                        ? SDG11
+                        : sdgKey === "SDG12"
+                        ? SDG12
+                        : sdgKey === "SDG13"
+                        ? SDG13
+                        : sdgKey === "SDG14"
+                        ? SDG14
+                        : sdgKey === "SDG15"
+                        ? SDG15
+                        : sdgKey === "SDG16"
+                        ? SDG16
+                        : sdgKey === "SDG17"
+                        ? SDG17
+                        : null // Eğer hiçbiri uyuşmuyorsa null döndür
+                    }
+                    alt={sdgKey}
+                  />
+                </div>
+              ))}
+
+              {/* {" "}
               {icons.map((icon, index) => (
                 <img src={icon} key={index} alt="" />
-              ))}
+              ))} */}
             </div>
             <div className="targets">
               DİM üzrə hədəf
