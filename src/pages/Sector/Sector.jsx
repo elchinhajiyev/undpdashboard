@@ -15,6 +15,7 @@ import SDG14 from "../../assets/sdg/14.png";
 import SDG15 from "../../assets/sdg/15.png";
 import SDG16 from "../../assets/sdg/16.jpeg";
 import SDG17 from "../../assets/sdg/17.png";
+import { Chart } from "react-google-charts";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./sector.scss";
@@ -149,7 +150,48 @@ const Sector = () => {
       }))
     )
   );
-  console.log(selectedhedef);
+  // console.log(selectedhedef);
+
+  //Pie chart ucun datanin filter edilmesi
+  const options = {
+    title: "Büdcə sektoruna görə ümumi məbləğin bölünməsi",
+    is3D: true,
+    backgroundColor: "none",
+  };
+
+  const totalBudgetAmount = resultCat?.reduce((total, item) => {
+    return (
+      total + item.hedef.reduce((subTotal, hedef) => subTotal + hedef.amount, 0)
+    );
+  }, 0);
+
+  const budceTotalAmounts = {};
+
+  resultCat?.forEach((item) => {
+    const budce = item.budce;
+    const totalAmount = item.hedef.reduce(
+      (total, hedef) => total + hedef.amount,
+      0
+    );
+
+    if (budceTotalAmounts[budce]) {
+      budceTotalAmounts[budce] += totalAmount;
+    } else {
+      budceTotalAmounts[budce] = totalAmount;
+    }
+  });
+
+  // Budce miqdarin faizle hesablanmasi
+  const budceData = Object.keys(budceTotalAmounts).map((budce) => ({
+    budce,
+    totalAmount: budceTotalAmounts[budce],
+    percentage: (budceTotalAmounts[budce] / totalBudgetAmount) * 100, // Umumi budceye gore faiz hesablama
+  }));
+
+  const pieChartData = [
+    ["Büdcə sektoru", "Məbləğ"],
+    ...budceData.map((item) => [item.budce, item.totalAmount]),
+  ];
   return (
     <div className="sector">
       <div className="header">
@@ -317,7 +359,7 @@ const Sector = () => {
                 <table>
                   <thead>
                     <tr>
-                      <th>Hedef Maddəsi</th>
+                      <th>Hədəf Maddəsi</th>
                       <th>Məbləğ</th>
                     </tr>
                   </thead>
@@ -332,6 +374,15 @@ const Sector = () => {
                 </table>
               </div>
             </div>
+          </div>
+          <div className="diagramsection">
+            <Chart
+              chartType="PieChart"
+              data={pieChartData}
+              options={options}
+              width={"100%"}
+              height={"200px"}
+            />
           </div>
         </div>
       </div>

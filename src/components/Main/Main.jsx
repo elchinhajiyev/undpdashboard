@@ -105,9 +105,6 @@ const Main = ({
         <Link to="/sector" className="nav-item">
           Sektor üzrə göstəricilər
         </Link>
-        <Link to="/gender" className="nav-item">
-          Şəbəkə qrafiki
-        </Link>
       </div>
       <div className="main-filters">
         <div className="filter budget-filter">

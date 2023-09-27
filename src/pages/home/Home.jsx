@@ -37,9 +37,6 @@ const Home = () => {
         <Link to="/sector" className="bysector">
           Sektor üzrə göstəricilər
         </Link>
-        <Link to="/gender" className="gender">
-          Şəbəkə qrafiki
-        </Link>
       </div>
     </div>
   );
