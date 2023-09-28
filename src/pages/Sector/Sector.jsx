@@ -31,11 +31,11 @@ import { icons, expenses } from "../../Data/expenses";
 const Sector = () => {
   function formatNumber(number) {
     if (number >= 1e9) {
-      return (number / 1e9).toFixed(1) + "B"; // Milyar
+      return (number / 1e9).toFixed(1) + "B"; // Milyard
     } else if (number >= 1e6) {
       return (number / 1e6).toFixed(1) + "M"; // Milyon
     } else {
-      return number.toString(); // Milyon veya milyar değilse, düz rakam olarak bırak
+      return number.toString(); // Milyon veya milyar deyilse, olduğu formatı saxla
     }
   }
   const [selectedCategory, setSelectedCategory] = useState();
@@ -51,7 +51,7 @@ const Sector = () => {
     let filteredExpenses = expenses; // expenses array filteredExpenses'e kopyaladıq
 
     if (selected) {
-      // Eğer bir filtre seçildiyse, filtrelemeyi yap
+      // Eger bir filtre secilmişse filterlemeni davam ele
       filteredExpenses = filteredExpenses.filter(
         ({ kategoriya }) => kategoriya === selected
       );
@@ -61,13 +61,11 @@ const Sector = () => {
   }
 
   const resultCat = filteredData(expenses, selectedCategory);
-  // console.log(resultCat);
   const processData = (expenses) => {
     const result = {};
 
-    expenses.forEach((item) => {
+    resultCat?.forEach((item) => {
       item.sdg.forEach((sdgItem) => {
-        const sdgicon = sdgItem.icon;
         const sdgName = sdgItem.name;
         const budcesektoru = item.budcesektoru;
         const totalamount = sdgItem.totalamount;
@@ -88,9 +86,72 @@ const Sector = () => {
   };
 
   const result = processData(expenses);
-  // console.log(result);
 
   const [selectedSDG, setSelectedSDG] = useState(null);
+
+  const handleButtonClick = (sdgKey) => {
+    setSelectedSDG(result[sdgKey]);
+  };
+
+  // const formatDataForBarChart = (selectedSDG) => {
+  //   if (!selectedSDG) return null;
+  //   const formattedData = [];
+  //   for (const [key, value] of Object.entries(selectedSDG)) {
+  //     formattedData.push({
+  //       name: key,
+  //       value: value,
+  //     });
+  //   }
+  //   return formattedData;
+  // };
+
+  const formatDataForBarChart = (selectedSDG) => {
+    const formattedData = {};
+
+    if (!selectedSDG) {
+      // Eğer selectedSDG boşsa, result içindeki tüm verileri birleştir
+      for (const sdgName in result) {
+        for (const budcesektoru in result[sdgName]) {
+          const key = budcesektoru;
+          const value = result[sdgName][budcesektoru];
+
+          if (!formattedData[key]) {
+            formattedData[key] = 0;
+          }
+
+          formattedData[key] += value;
+        }
+      }
+    } else {
+      // Eğer selectedSDG doluysa, sadece seçilen verileri döndür
+      for (const [key, value] of Object.entries(selectedSDG)) {
+        formattedData[key] = value;
+      }
+    }
+
+    // Toplam değerleri hesapla ve ekleyin
+    let totalValue = 0;
+    for (const key in formattedData) {
+      totalValue += formattedData[key];
+    }
+
+    // Toplam değeri "Toplam" anahtarlı bir öğe olarak ekleyin
+    formattedData["Toplam"] = totalValue;
+
+    const resultArray = [];
+
+    // formattedData nesnesini diziye dönüştür
+    for (const key in formattedData) {
+      resultArray.push({
+        name: key,
+        value: formattedData[key],
+      });
+    }
+
+    return resultArray;
+  };
+
+  const formattedData = formatDataForBarChart(selectedSDG);
 
   function filteredData(expenses, selected) {
     let filteredExpenses = expenses;
@@ -101,25 +162,8 @@ const Sector = () => {
       );
     }
 
-    return filteredExpenses; // Kategodiya secilmis data
+    return filteredExpenses; // Kategoriya secilmis data
   }
-  const categoryResult = filteredData(expenses, selectedCategory);
-  const handleButtonClick = (sdgKey) => {
-    setSelectedSDG(result[sdgKey]);
-  };
-
-  const formatDataForBarChart = (selectedSDG) => {
-    if (!selectedSDG) return null;
-    const formattedData = [];
-    for (const [key, value] of Object.entries(selectedSDG)) {
-      formattedData.push({
-        name: key,
-        value: value,
-      });
-    }
-    return formattedData;
-  };
-  const formattedData = formatDataForBarChart(selectedSDG);
 
   ////////////////////////////////////////////////////////////////
 
@@ -133,10 +177,9 @@ const Sector = () => {
     });
   });
 
-  // Tekrarlanan SDG isimlerini sil
+  // Tekrarlanan SDG adlarını sil
   var uniqueSDGIsimleri = [...new Set(filtrelenmisSDGIsimleri)];
 
-  console.log(uniqueSDGIsimleri);
   var eslesenSDGIsimleri = Object.keys(result).filter((sdgKey) =>
     uniqueSDGIsimleri.includes(sdgKey)
   );
@@ -207,10 +250,10 @@ const Sector = () => {
             {formattedData && (
               <BarChart
                 layout="vertical"
-                width={700}
-                height={400}
+                width={800}
+                height={300}
                 data={formattedData}
-                margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
+                margin={{ top: 5, right: 30, left: 110, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray="2 3" />
                 <XAxis
@@ -234,7 +277,8 @@ const Sector = () => {
                     dx: -10,
                     fontSize: 13,
                     fill: "gray",
-                    width: 50,
+                    width: 250,
+                    angle: 0,
                   }}
                   type="category"
                   dataKey="name"
@@ -248,7 +292,7 @@ const Sector = () => {
                   }}
                   dataKey="value"
                   fill="#1466ae"
-                  barSize={40}
+                  barSize={30}
                 />
               </BarChart>
             )}
