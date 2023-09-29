@@ -53,6 +53,7 @@ const SDG = () => {
 
   const [showExpense, setShowExpense] = useState(true);
   const [filteredExpense, setFilteredExpense] = useState({});
+  const [selectedtarget, setSelectedtarget] = useState([]);
 
   const handleClick = (id) => {
     const filteredData = result?.find(

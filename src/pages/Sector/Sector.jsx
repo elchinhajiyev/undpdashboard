@@ -28,7 +28,9 @@ import { FaHandsHoldingChild } from "react-icons/fa6";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { icons, expenses } from "../../Data/expenses";
+import { useSelector } from "react-redux";
 const Sector = () => {
+  const { language } = useSelector((state) => state.language);
   function formatNumber(number) {
     if (number >= 1e9) {
       return (number / 1e9).toFixed(1) + "B"; // Milyard
@@ -93,18 +95,6 @@ const Sector = () => {
     setSelectedSDG(result[sdgKey]);
   };
 
-  // const formatDataForBarChart = (selectedSDG) => {
-  //   if (!selectedSDG) return null;
-  //   const formattedData = [];
-  //   for (const [key, value] of Object.entries(selectedSDG)) {
-  //     formattedData.push({
-  //       name: key,
-  //       value: value,
-  //     });
-  //   }
-  //   return formattedData;
-  // };
-
   const formatDataForBarChart = (selectedSDG) => {
     const formattedData = {};
 
@@ -136,7 +126,6 @@ const Sector = () => {
     }
 
     // Toplam değeri "Toplam" anahtarlı bir öğe olarak ekleyin
-    formattedData["Toplam"] = totalValue;
 
     const resultArray = [];
 
@@ -185,7 +174,7 @@ const Sector = () => {
   );
 
   const selectedhedef = [].concat(
-    ...resultCat.map((item) =>
+    ...resultCat?.map((item) =>
       item.hedef.map((hedef) => ({
         hedefmaddesi: hedef.hedefmaddesi,
         hedefadi: hedef.hedefadi,
@@ -197,11 +186,12 @@ const Sector = () => {
 
   //Pie chart ucun datanin filter edilmesi
   const options = {
-    title: "Büdcə sektoruna görə ümumi məbləğin bölünməsi",
+    title: !language
+      ? "Büdcə sektoruna görə ümumi məbləğin bölünməsi"
+      : "Share of the total amount by budget sector",
     is3D: true,
     backgroundColor: "none",
   };
-
   const totalBudgetAmount = resultCat?.reduce((total, item) => {
     return (
       total + item.hedef.reduce((subTotal, hedef) => subTotal + hedef.amount, 0)
@@ -240,12 +230,20 @@ const Sector = () => {
       <div className="header">
         <Link to="/">
           <IoArrowBackOutline style={{ fontSize: "24px" }} />
-          <h1>Sektor üzrə göstəricilər</h1>
+          {language ? (
+            <h2>Dashboard by Sector</h2>
+          ) : (
+            <h2>Sektor üzrə göstəricilər</h2>
+          )}
         </Link>
       </div>
       <div className="body">
         <div className="chart">
-          <div className="chart-header">DİM üzrə finans</div>
+          {language ? (
+            <div className="chart-header">SDG Financing by Sector</div>
+          ) : (
+            <div className="chart-header">DİM üzrə finans</div>
+          )}
           <div className="barchart">
             {formattedData && (
               <BarChart
@@ -302,7 +300,7 @@ const Sector = () => {
           <div className="filter-category">
             <button onClick={handleReset} value="" className="navigation">
               <BsGlobeAsiaAustralia className="nav-icon" />
-              Ümumi
+              {language ? <span>General</span> : <span>Ümumi</span>}
             </button>
             <button
               onClick={handleCategory}
@@ -318,7 +316,7 @@ const Sector = () => {
               className="navigation"
             >
               <FaChild className="nav-icon" />
-              Uşaq
+              {language ? <span>Chilghood</span> : <span>Uşaq</span>}
             </button>
             <button
               onClick={handleCategory}
@@ -326,7 +324,7 @@ const Sector = () => {
               className="navigation"
             >
               <GiPeaceDove className="nav-icon" />
-              Sülh
+              {language ? <span>Peace</span> : <span>Sülh</span>}
             </button>
             <button
               onClick={handleCategory}
@@ -334,7 +332,7 @@ const Sector = () => {
               className="navigation"
             >
               <BiPlanet className="nav-icon" />
-              Dünya
+              {language ? <span>Planet</span> : <span>Dünya</span>}
             </button>
             <button
               onClick={handleCategory}
@@ -342,7 +340,7 @@ const Sector = () => {
               className="navigation"
             >
               <FaHandsHoldingChild className="nav-icon" />
-              Sosial rifah
+              {language ? <span>Welfare</span> : <span>Sosial rifah</span>}
             </button>
           </div>
           <div className="sdg-target">
@@ -385,27 +383,37 @@ const Sector = () => {
                         ? SDG16
                         : sdgKey === "SDG17"
                         ? SDG17
-                        : null // Eğer hiçbiri uyuşmuyorsa null döndür
+                        : null
                     }
                     alt={sdgKey}
                   />
                 </div>
               ))}
-
-              {/* {" "}
-              {icons.map((icon, index) => (
-                <img src={icon} key={index} alt="" />
-              ))} */}
+              <button
+                onClick={() => {
+                  setSelectedSDG(null);
+                }}
+                style={{ width: "50px", height: "50px", cursor: "pointer" }}
+              >
+                {language ? <span>All SDG</span> : <span>Ümumi</span>}
+              </button>
             </div>
             <div className="targets">
-              DİM üzrə hədəf
+              {language ? <span>Targets</span> : <span>DİM üzrə hədəf</span>}
               <div className="target-list">
                 <table>
                   <thead>
-                    <tr>
-                      <th>Hədəf Maddəsi</th>
-                      <th>Məbləğ</th>
-                    </tr>
+                    {language ? (
+                      <tr>
+                        <th>SDG Target</th>
+                        <th>Amount</th>
+                      </tr>
+                    ) : (
+                      <tr>
+                        <th>Hədəf Maddəsi</th>
+                        <th>Məbləğ</th>
+                      </tr>
+                    )}
                   </thead>
                   <tbody>
                     {selectedhedef.map((singlehedef) => (

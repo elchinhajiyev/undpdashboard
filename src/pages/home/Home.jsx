@@ -1,10 +1,20 @@
 import React from "react";
-import inff from "../../assets/funded_logo/inff.png";
-import joint from "../../assets/funded_logo/joint.png";
+import azflag from "../../assets/flag/azflag.png";
+import enflag from "../../assets/flag/ukflag.png";
 import undp from "../../assets/funded_logo/undp.png";
+import emblemaz from "../../assets/funded_logo/emblemaz.png";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setEnglish,
+  setAze,
+} from "../../redux/features/language/languageSlice";
 import "./home.scss";
+
 const Home = () => {
+  const dispatch = useDispatch();
+  const { language } = useSelector((state) => state.language);
+  console.log(language);
   return (
     <div className="home">
       <div className="header-section">
@@ -14,28 +24,49 @@ const Home = () => {
           <option value="">2024</option>
         </select>
         <div className="languages">
-          <button>EN</button>
-          <button>AZ</button>
+          <button onClick={() => dispatch(setEnglish())}>
+            {" "}
+            <img src={enflag} alt="English" /> EN
+          </button>
+          <button onClick={() => dispatch(setAze())}>
+            <img src={azflag} alt="Az" /> AZ
+          </button>
         </div>
       </div>
       <div className="logo">
         {/* <img src={joint} alt="joint" />
         <img src={inff} alt="inff" /> */}
+        <img src={emblemaz} alt="undp" />
         <img src={undp} alt="undp" />
       </div>
       <div className="main-box">
-        <p>
-          Azərbaycan Respublikasının icmal büdcə xərclərinin <br />
-          Dayanıqlı İnkişaf Məqsədləri (DİM) ilə uyğunluğu
-        </p>
+        {language ? (
+          <p>
+            Allignment of the National Budget of the Republic of
+            Azerbaijan towards SDGs
+          </p>
+        ) : (
+          <p>
+            Azərbaycan Respublikasının icmal büdcə xərclərinin <br />
+            Dayanıqlı İnkişaf Məqsədləri (DİM) ilə uyğunluğu
+          </p>
+        )}
       </div>
       <div className="navigation">
         <Link to="/sdg" className="bysdg">
           {" "}
-          DİM üzrə göstəricilər
+          {language ? (
+            <span> Dashboard by SDG</span>
+          ) : (
+            <span> DİM üzrə göstəricilər</span>
+          )}
         </Link>
         <Link to="/sector" className="bysector">
-          Sektor üzrə göstəricilər
+          {language ? (
+            <span> Dashboard by Sector</span>
+          ) : (
+            <span> Sektor üzrə göstəricilər</span>
+          )}
         </Link>
       </div>
     </div>

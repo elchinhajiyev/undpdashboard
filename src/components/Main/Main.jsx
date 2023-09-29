@@ -16,6 +16,7 @@ import "./main.scss";
 import { Link } from "react-router-dom";
 import { expenses, icons } from "../../Data/expenses";
 import sdg1 from "../../assets/sdg/1.png";
+import { useSelector } from "react-redux";
 const Main = ({
   handleSector,
   handleDovlet,
@@ -25,6 +26,7 @@ const Main = ({
   filteredSdg,
   showSdg,
 }) => {
+  const { language } = useSelector((state) => state.language);
   let totalAmount = 0;
   result?.forEach((singleitem) => {
     singleitem.sdg?.forEach((singlesdg) => {
@@ -60,7 +62,9 @@ const Main = ({
 
   //Pie chart ucun datanin filter edilmesi
   const options = {
-    title: "Büdcə sektoruna görə ümumi məbləğin bölünməsi",
+    title: !language
+      ? "Büdcə sektoruna görə ümumi məbləğin bölünməsi"
+      : "Share of the total amount by budget sector",
     is3D: true,
     backgroundColor: "none",
   };
@@ -103,14 +107,24 @@ const Main = ({
     <div className="main">
       <div className="main-navigation">
         <Link to="/sector" className="nav-item">
-          Sektor üzrə göstəricilər
+          {language ? (
+            <span> Dashboard by Sector</span>
+          ) : (
+            <span> Sektor üzrə göstəricilər</span>
+          )}
         </Link>
       </div>
       <div className="main-filters">
         <div className="filter budget-filter">
-          <label htmlFor="budget"> BÜDCƏ SEKTORU</label>
+          {language ? (
+            <label htmlFor="budget"> BUDGET SECTOR</label>
+          ) : (
+            <label htmlFor="budget"> BÜDCƏ SEKTORU</label>
+          )}
           <select onChange={handleSector} name="budget" id="budget">
-            <option value="">Ümumi</option>
+            <option value="">
+              {language ? <span>All</span> : <span>Ümumi</span>}
+            </option>
             {uniqueBudcesektoruValues.map((value, index) => (
               <option key={index} value={value}>
                 {value}
@@ -119,9 +133,16 @@ const Main = ({
           </select>
         </div>
         <div className="filter institution-filter">
-          <label htmlFor="budget">BÜDCƏ</label>
+          {language ? (
+            <label htmlFor="budget">BUDGET</label>
+          ) : (
+            <label htmlFor="budget">BÜDCƏ</label>
+          )}
           <select onChange={handleBudce} name="budget" id="budget">
-            <option value="">Ümumi</option>
+            <option value="">
+              {" "}
+              {language ? <span>All</span> : <span>Ümumi</span>}
+            </option>
             {uniqueBudceValues.map((budcevalue, index) => (
               <option key={index} value={budcevalue}>
                 {budcevalue}
@@ -130,9 +151,16 @@ const Main = ({
           </select>
         </div>
         <div className="filter cofog-filter">
-          <label htmlFor="budget">DÖVLƏT QURUMU</label>
+          {language ? (
+            <label htmlFor="budget">STATE BODY</label>
+          ) : (
+            <label htmlFor="budget">DÖVLƏT QURUMU</label>
+          )}
           <select onChange={handleDovlet} name="budget" id="budget">
-            <option value="">Ümumi</option>
+            <option value="">
+              {" "}
+              {language ? <span>All</span> : <span>Ümumi</span>}
+            </option>
             {uniqueDovletqurumuValues.map((dvalue, index) => (
               <option key={index} value={dvalue}>
                 {dvalue}

@@ -20,9 +20,13 @@ export const expenses = [
   {
     id: 58,
     xerc: "Sosial müdafiə üzrə təminat",
+    xercen: "Social protection and social security",
     dovletqurumu: "DSMF",
+    dovletqurumuen: "SSPF",
     budcesektoru: "Sosial müdafiə və sosial təminat",
+    budcesektoruen: "Sosial protection and social security",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Gender",
     xercmaddesi: "7.6",
     sdg: [
@@ -135,6 +139,8 @@ export const expenses = [
         hedefmaddesi: "1.1",
         hedefadi:
           "Hazırda gündəlik 1.25 ABŞ dollarından az gəlir həddində müəyyən edilən kəskin yoxsulluğa 2030-cu ilədək son qoymaq",
+        hedefadien:
+          "By 2030, eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day",
         amount: 124831538,
       },
       {
@@ -142,6 +148,8 @@ export const expenses = [
         hedefmaddesi: "1.2",
         hedefadi:
           "Milli anlayışlara uyğun olaraq yoxsulluğun hər hansı forması ilə üzləşən bütün yaşlarda kişilərin, qadınların və uşaqların xüsusi çəkisini 2030-cu ilədək ən azı iki dəfə azaltmaq",
+        hedefadien:
+          "By 2030, reduce at least by half the proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions",
         amount: 124831538,
       },
       {
@@ -149,6 +157,8 @@ export const expenses = [
         hedefmaddesi: "1.3",
         hedefadi:
           "Hamı üçün milli səviyyədə məqsədə uyğun sosial müdafiə sistemlərini və tədbirlərini, o cümlədən sosial təminatın minimum səviyyələrini təmin etmək və 2030-cu ilədək yoxsul və digər həssas əhalinin böyük hissəsini əhatə etmək",
+        hedefadien:
+          "Implement nationally appropriate social protection systems and measures for all, including floors, and by 2030 achieve substantial coverage of the poor and the vulnerable",
         amount: 1872473072,
       },
       {
@@ -156,6 +166,8 @@ export const expenses = [
         hedefmaddesi: "1.4",
         hedefadi:
           "2030-cu ilədək, bütün kişilərin və qadınların, xüsusən də yoxsul və digər həssas əhali qruplarının iqtisadi resurslara bərabər çıxış hüquqlarına, habelə əsas xidmətlərə, torpaq və əmlak formaları üzərində mülkiyyət və nəzarətə, miras, təbii resurslar, müvafiq yeni texnologiyalar və maliyyə xidmətlərinə, o cümlədən mikro-maliyyə xidmətlərinə bərabər çıxış imkanlarına malik olmalarını təmin etmək",
+        hedefadien:
+          "By 2030, ensure that all men and women, in particular the poor and the vulnerable, have equal rights to economic resources, as well as access to basic services, ownership and control over land and other forms of property, inheritance, natural resources, appropriate new technology and financial services, including microfinance",
         amount: 124831538,
       },
       {
@@ -163,6 +175,8 @@ export const expenses = [
         hedefmaddesi: "1.5",
         hedefadi:
           "2030-cu ilədək, yoxsul və həssas qrupları möhkəmləndirmək, onların iqlimlə bağlı hadisələrə, eləcə də digər iqtisadi, sosial və ekoloji şok və fəlakətlərə məruz qalma hallarını və bu hadisələrə qarşı davamsızlığını azaltmaq",
+        hedefadien:
+          "By 2030, build the resilience of the poor and those in vulnerable situations and reduce their exposure and vulnerability to climate-related extreme events and other economic, social and environmental shocks and disasters",
         amount: 124831538,
       },
       {
@@ -170,6 +184,8 @@ export const expenses = [
         hedefmaddesi: "10.1",
         hedefadi:
           "2030-cu ilədək, əhalinin ən yoxsul 40 faizinin gəlir artımının ölkədəki orta səviyyədən daha yüksək olmasına tədricən nail olmaq və bu səviyyədə saxlamaq",
+        hedefadien:
+          "By 2030, progressively achieve and sustain income growth of the bottom 40 per cent of the population at a rate higher than the national average",
         amount: 124831538,
       },
     ],
@@ -177,9 +193,12 @@ export const expenses = [
   {
     id: 90,
     xerc: "İşsizliyə görə sığorta ödənişləri",
-    dovletqurumu: "DMA",
+    xercen: "Unemployment insurance payments",
+    dovletqurumu: "SEA",
     budcesektoru: "Sosial müdafiə və sosial təminat",
+    budcesektoruen: "Social protection and social security",
     budce: "ISF",
+    budceen: "UIF",
     kategoriya: "Planet",
     xercmaddesi: "1",
     sdg: [
@@ -292,6 +311,8 @@ export const expenses = [
         hedefmaddesi: "1.3",
         hedefadi:
           "Hamı üçün milli səviyyədə məqsədə uyğun sosial müdafiə sistemlərini və tədbirlərini, o cümlədən sosial təminatın minimum səviyyələrini təmin etmək və 2030-cu ilədək yoxsul və digər həssas əhalinin böyük hissəsini əhatə etmək",
+        hedefadien:
+          "Implement nationally appropriate social protection systems and measures for all, including floors, and by 2030 achieve substantial coverage of the poor and the vulnerable",
         amount: 8500000,
       },
     ],
@@ -299,9 +320,13 @@ export const expenses = [
   {
     id: 11,
     xerc: "Əhaliyə ödənişlər üzrə xərclər",
+    xercen: "Expenditure on payments to the population",
     dovletqurumu: "DSMF",
+    dovletqurumuen: "SSPF",
     budcesektoru: "Sosial müdafiə və sosial təminat",
+    budcesektoruen: "Social protection and social security",
     budce: "DSMF",
+    budceen: "SSPF",
     kategoriya: "Welfare",
     xercmaddesi: "1",
     sdg: [
@@ -414,6 +439,8 @@ export const expenses = [
         hedefmaddesi: "1.3",
         hedefadi:
           "Hamı üçün milli səviyyədə məqsədə uyğun sosial müdafiə sistemlərini və tədbirlərini, o cümlədən sosial təminatın minimum səviyyələrini təmin etmək və 2030-cu ilədək yoxsul və digər həssas əhalinin böyük hissəsini əhatə etmək",
+        hedefadien:
+          "Implement nationally appropriate social protection systems and measures for all, including floors, and by 2030 achieve substantial coverage of the poor and the vulnerable",
         amount: 5431199497,
       },
     ],
@@ -421,9 +448,13 @@ export const expenses = [
   {
     id: 36,
     xerc: "Xarici yardımlar",
+    xercen: "External Support",
     dovletqurumu: "MN",
+    dovletqurumuen: "MOFA",
     budcesektoru: "Ümumi dövlət xidmətləri",
+    budcesektoruen: "General government services",
     budce: "DSMF",
+    budceen: "SBRA",
     kategoriya: "Welfare",
     xercmaddesi: "7.1.3",
     sdg: [
@@ -536,6 +567,8 @@ export const expenses = [
         hedefmaddesi: "1.A",
         hedefadi:
           "Yoxsulluğun bütün formalarına son qoymağa yönələn proqramları və siyasətləri həyata keçirmək üçün inkişaf etməkdə olan ölkələri, xüsusən də ən az inkişaf etmiş ölkələri adekvat və qabaqcadan müəyyən oluna bilən vasitələrlə təmin etmək məqsədilə başqa vasitələrlə yanaşı, inkişaf sahəsində əməkdaşlığın genişləndirilməsi yolu ilə müxtəlif mənbələrdən əhəmiyyətli həcmdə resursların səfərbər olunmasını təmin etmək",
+        hedefadien:
+          "Ensure significant mobilization of resources from a variety of sources, including through enhanced development cooperation, in order to provide adequate and predictable means for developing countries, in particular least developed countries, to implement programmes and policies to end poverty in all its dimensions",
         amount: 12000000,
       },
     ],
@@ -543,9 +576,14 @@ export const expenses = [
   {
     id: 108,
     xerc: "Azərbaycan Respublikası Dövlət Neft Fondunun idarə edilməsi ilə bağlı xərclər",
+    xercen:
+      "Activities of legislation,  executive powers and self-governance bodies",
     dovletqurumu: "ARDNF",
+    dovletqurumuen: "LEP",
     budcesektoru: "Ümumi dövlət xidmətləri",
+    budcesektoruen: "General government services",
     budce: "ARDNF",
+    budceen: "SBRA",
     kategoriya: "Welfare",
     xercmaddesi: "3.4",
     sdg: [
@@ -658,6 +696,8 @@ export const expenses = [
         hedefmaddesi: "1.B",
         hedefadi:
           "Yoxsulluğun aradan qaldırılması ilə bağlı tədbirlər üçün maliyyə vəsaitlərinin daha sürətli cəlb olunmasına dəstək göstərmək üçün yoxsullara yönələn və gender məsələlərini nəzərə alan inkişaf strategiyaları əsasında, milli, regional və beynəlxalq səviyyələrdə möhkəm əsaslı siyasi çərçivələr yaratmaq",
+        hedefadien:
+          "Create sound policy frameworks at the national, regional and international levels, based on pro-poor and gender-sensitive development strategies, to support accelerated investment in poverty eradication actions",
         amount: 33988600,
       },
     ],
@@ -665,9 +705,13 @@ export const expenses = [
   {
     id: 93,
     xerc: "Kənd təsərrüfatı tədbirləri",
+    xercen: "Agricultural activities",
     dovletqurumu: "KTN",
+    dovletqurumuen: "MOA",
     budcesektoru: "Kənd Təsərrüfatı",
+    budcesektoruen: "Agriculture",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Childhood",
     xercmaddesi: "7.9.1",
     sdg: [
@@ -780,12 +824,16 @@ export const expenses = [
         hedefmaddesi: "2.1",
         hedefadi:
           "2030-cu ilədək, aclığa son qoymaq və hamının, xüsusən də yoxsul və həssas qrupların, o cümlədən, körpələrin il boyu təhlükəsiz, qidalı elementlərlə zəngin və yetərli miqdarda ərzağa çıxışını təmin etmək",
+        hedefadien:
+          "2030-cu ilədək, aclığa son qoymaq və hamının, xüsusən də yoxsul və həssas qrupların, o cümlədən, körpələrin il boyu təhlükəsiz, qidalı elementlərlə zəngin və yetərli miqdarda ərzağa çıxışını təmin etmək",
         amount: 39790306,
       },
       {
         id: 1492,
         hedefmaddesi: "2.2",
         hedefadi:
+          "2030-cu ilədək, zəif qidalanmanın bütün formalarına son qoymaq, o cümlədən 2025-ci ilədək, 5 yaşadək uşaqlarda bəstəboyluq və arıqlıq halları ilə bağlı beynəlxalq səviyyədə razılaşdırılmış hədəflərə çatmaq və yeniyetmə qızların, hamilə və ya süd verən qadınların və yaşlı insanların qidalanma ilə bağlı ehtiyaclarını təmin etmək",
+        hedefadien:
           "2030-cu ilədək, zəif qidalanmanın bütün formalarına son qoymaq, o cümlədən 2025-ci ilədək, 5 yaşadək uşaqlarda bəstəboyluq və arıqlıq halları ilə bağlı beynəlxalq səviyyədə razılaşdırılmış hədəflərə çatmaq və yeniyetmə qızların, hamilə və ya süd verən qadınların və yaşlı insanların qidalanma ilə bağlı ehtiyaclarını təmin etmək",
         amount: 39790306,
       },
@@ -794,12 +842,16 @@ export const expenses = [
         hedefmaddesi: "2.4",
         hedefadi:
           "2030-cu ilədək, dayanıqlı ərzaq istehsalı sistemlərini təmin etmək, məhsuldarlığı və istehsalı yüksəldən, ekosistemlərin qorunub saxlanmasına kömək edən, iqlim dəyişikliyinə, kəskin hava şəraitinə, quraqlığa, daşqınlara və digər təbii fəlakətlərə uyğunlaşma potensialını gücləndirən, yerin və torpağın keyfiyyətini tədricən artıran dayanıqlı kənd təsərrüfatı təcrübələrini tətbiq etmək",
+        hedefadien:
+          "2030-cu ilədək, dayanıqlı ərzaq istehsalı sistemlərini təmin etmək, məhsuldarlığı və istehsalı yüksəldən, ekosistemlərin qorunub saxlanmasına kömək edən, iqlim dəyişikliyinə, kəskin hava şəraitinə, quraqlığa, daşqınlara və digər təbii fəlakətlərə uyğunlaşma potensialını gücləndirən, yerin və torpağın keyfiyyətini tədricən artıran dayanıqlı kənd təsərrüfatı təcrübələrini tətbiq etmək",
         amount: 358112750,
       },
       {
         id: 1463,
         hedefmaddesi: "2.C",
         hedefadi:
+          "Ərzaq qiymətlərindəki kəskin enib-qalxmaları məhdudlaşdırmağa kömək etmək məqsədilə, ərzaq malları bazarlarının və onların törəmələrinin düzgün şəkildə fəaliyyət göstərməsini və bazara, o cümlədən ərzaq ehtiyatlarına dair məlumatlara vaxtlı-vaxtında çıxışı təmin etmək üçün tədbirlər görmək",
+        hedefadien:
           "Ərzaq qiymətlərindəki kəskin enib-qalxmaları məhdudlaşdırmağa kömək etmək məqsədilə, ərzaq malları bazarlarının və onların törəmələrinin düzgün şəkildə fəaliyyət göstərməsini və bazara, o cümlədən ərzaq ehtiyatlarına dair məlumatlara vaxtlı-vaxtında çıxışı təmin etmək üçün tədbirlər görmək",
         amount: 39790306,
       },
@@ -808,9 +860,13 @@ export const expenses = [
   {
     id: 4993,
     xerc: "Kənd təsərrüfatı üzrə digər müəssisə və tədbirlər",
+    xercen: "Other agricultural institutions and activities",
     dovletqurumu: "KTN",
+    dovletqurumuen: "MOA",
     budcesektoru: "Kənd Təsərrüfatı",
+    budcesektoruen: "Agriculture",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Welfare",
     xercmaddesi: "7.9.4",
     sdg: [
@@ -930,9 +986,13 @@ export const expenses = [
   {
     id: 5589,
     xerc: "Baytarlıq",
+    xercen: "Veterinary",
     dovletqurumu: "KTN",
+    dovletqurumuen: "MOA",
     budcesektoru: "Kənd Təsərrüfatı",
+    budcesektoruen: "Agriculture",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Welfare",
     xercmaddesi: "7.9.2",
     sdg: [
@@ -1052,9 +1112,14 @@ export const expenses = [
   {
     id: 24,
     xerc: "Azərbaycan Həmkarlar İttifaqları Konfederasiyası xətti ilə sığortaolunanların sanatoriya-kurort müalicəsi və sağlamlaşdırma tədbirlərinin həyata keçirilməsi üzrə xərclər",
+    xercen:
+      "Ependitures for the implementation of sanatorium-resort treatment and health measures for people insured by Azerbaijan Trade Unions Confederation",
     dovletqurumu: "AHİK",
+    dovletqurumuen: "ATUC",
     budcesektoru: "Sosial müdafiə və sosial təminat",
+    budcesektoruen: "Social protection and social security",
     budce: "DSMF",
+    budceen: "SSPF",
     kategoriya: "Gender",
     xercmaddesi: "2",
     sdg: [
@@ -1174,9 +1239,13 @@ export const expenses = [
   {
     id: 6024,
     xerc: "Balıqçılıq və Ovçuluq",
+    xercen: "Fishing and hunting",
     dovletqurumu: "ETSN",
+    dovletqurumuen: "MOENR",
     budcesektoru: "Ətraf mühitin mühafizəsi",
+    budcesektoruen: "Environmental Protection",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Gender",
     xercmaddesi: "2",
     sdg: [
@@ -1303,9 +1372,13 @@ export const expenses = [
   {
     id: 218,
     xerc: "Bioloji zənginliyin qorunması",
+    xercen: "Conservation of biological diversity",
     dovletqurumu: "ETSN",
+    dovletqurumuen: "MOENR",
     budcesektoru: "Ətraf mühitin mühafizəsi",
+    budcesektoruen: "Environmental Protection",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Peace",
     xercmaddesi: "7.10.1",
     sdg: [
@@ -1446,9 +1519,13 @@ export const expenses = [
   {
     id: 47218,
     xerc: "Məhkəmə hakimiyyəti, hüquq mühafizə və prokurorluq",
+    xercen: "Judicial power, law enforcement and prosecution",
     dovletqurumu: "ƏN",
+    dovletqurumuen: "MOJ",
     budcesektoru: "Məhkəmə hakimiyyəti, hüquq mühafizə və prokurorluq",
+    budcesektoruen: "Judicial power, law enforcement and prosecution",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Peace",
     xercmaddesi: "7.3",
     sdg: [
@@ -1596,9 +1673,14 @@ export const expenses = [
   {
     id: 472148,
     xerc: "Qanunvericilik və icra hakimiyyəti, yerli özünüidarəetmə orqanlarının fəaliyyəti",
+    xercen:
+      "Activities of legislation,  executive powers and self-governance bodies",
     dovletqurumu: "QİH",
+    dovletqurumuen: "LEP",
     budcesektoru: "Ümumi dövlət xidmətləri",
+    budcesektoruen: "General government services",
     budce: "ARDB",
+    budceen: "SBRA",
     kategoriya: "Peace",
     xercmaddesi: "7.1.1",
     sdg: [
